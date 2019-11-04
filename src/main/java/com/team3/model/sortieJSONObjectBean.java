@@ -66,6 +66,6 @@ public class sortieJSONObjectBean {
 
     @Override
     public String toString() {
-        return "sortieJSONObjectBean{" + "valeur_fonciere_totale=" + valeur_fonciere_totale + ", taxe_Scolaire=" + taxe_Scolaire + ", taxe_municipale=" + taxe_municipale + ", lotissements=" + lotissements + '}';
+        return "{" + "\"valeur_fonciere_totale\":" + valeur_fonciere_totale + ", \"taxe_Scolaire\":" + taxe_Scolaire + ", \"taxe_municipale\":" + taxe_municipale + ", \"lotissements\":" + lotissements + '}';
     }
 }

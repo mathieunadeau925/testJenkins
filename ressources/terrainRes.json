@@ -1,1 +1,15 @@
-sortieJSONObjectBean{valeur_fonciere_totale="17538.72 $", taxe_Scolaire=210.46464 $, taxe_municipale=394.6212 $, lotissements=["lotissements" :{"descrptions"=""lot 1"", "valeur_par_lot"=1573.2 $}, "lotissements" :{"descrptions"=""lot 3"", "valeur_par_lot"=11498.85 $}, "lotissements" :{"descrptions"=""lot 2"", "valeur_par_lot"=3732.9 $}]}
+{
+    "valeur_fonciere_totale": "17538.72 $",
+    "taxe_Scolaire": "210.46464 $",
+    "taxe_municipale": "394.6212 $",
+    "lotissements": [{
+            "descrptions": "lot 1",
+            "valeur_par_lot": "1573.2 $"
+        }, {
+            "descrptions": "lot 3",
+            "valeur_par_lot": "11498.85 $"
+        }, {
+            "descrptions": "lot 2",
+            "valeur_par_lot": "3732.9 $"
+        }]
+}

@@ -39,8 +39,8 @@ public class sortieJSONArrayBean {
     @Override
     public String toString() {
 //        return org.apache.commons.lang3.builder.ReflectionToStringBuilder.toString(this);
-        return "\"lotissements\" :{" + "\"descrptions\"=" +"\""+ descrptions +"\""+
-                ", \"valeur_par_lot\"=" + valeur_par_lot + '}';
+        return "{" + "\"descrptions\":" + descrptions +""+
+                ", \"valeur_par_lot\":\"" + valeur_par_lot + "\"}";
     }
     
 }

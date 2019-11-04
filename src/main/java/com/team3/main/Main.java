@@ -91,8 +91,8 @@ public class Main {
         
         sortieJSONObjectBean sortieJSONObjectB = new sortieJSONObjectBean(
                 "\""+String.valueOf(valeur_fonciere_total)+" $\"", 
-                String.valueOf(taux_scolaire)+" $", 
-                String.valueOf(taux_taxe_municipale)+" $",
+                "\""+String.valueOf(taux_scolaire)+" $\"", 
+                "\""+String.valueOf(taux_taxe_municipale)+" $\"",
                 lotissementsResult
         );
         
