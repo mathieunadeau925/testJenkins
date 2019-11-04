@@ -8,12 +8,13 @@ package com.team3.main;
 import com.team3.model.*;
 import com.team3.util.Agricole;
 import com.team3.util.FileReader;
+import com.team3.util.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -27,17 +28,13 @@ public class Main {
     public static void main(String[] args) throws IOException, ParseException {
 
         String myJSON = FileReader.loadFileIntoString("ressources/terrain1.json", "UTF-8");
-        //System.out.println(myJSON);
         JSONObject terrainJSON = JSONObject.fromObject(myJSON);
         JSONArray lotissementJSONArrays = terrainJSON.getJSONArray("lotissements");
 
         int type_terrain = terrainJSON.getInt("type_terrain");
-        String prix_m2_Min = terrainJSON.getString("prix_m2_min").replace(" $", "");
+        String prix_m2_min = terrainJSON.getString("prix_m2_min").replace(" $", "");
         String prix_m2_max = terrainJSON.getString("prix_m2_max").replace(" $", "");
-        //prix_m2_Min = prix_m2_Min.replace(" $", "");
-        System.out.println(Double.valueOf(prix_m2_Min));
-
-        Terrain terrainObject = new Terrain(type_terrain, Double.valueOf(prix_m2_Min), Double.valueOf(prix_m2_Min));
+        Terrain terrainObject = new Terrain(type_terrain, Double.valueOf(prix_m2_min), Double.valueOf(prix_m2_max));
 
         JSONObject lotsJSONObject;
         String desciptions = null;
@@ -60,34 +57,68 @@ public class Main {
             lotissementObject = new Lotissement(desciptions, nbr_droit_passage, nbr_services, superficier, date_mesure);
             lotissements.add(lotissementObject);
         }
+        terrainObject.setLotissements(lotissements);
+        lotissements.forEach((e) -> {
+            System.out.println(e);
+        });
 
-        sortieJSONArrayBean sortieJSONArrayBean = new sortieJSONArrayBean();
-        Set<sortieJSONArrayBean> lotissementsResult = new HashSet<>();
-        if (terrainObject.getType_terrain() == 0) {
+        System.out.println(terrainObject.toString());
 
-            for (Lotissement e : lotissements) {
-                sortieJSONArrayBean.setDescrptions(e.getDescriptions());
-                sortieJSONArrayBean.setValeur_par_lot(String.valueOf(Agricole.calculerValeurLot(e.getSuperficie(), Double.valueOf(terrainObject.getPrix_m2_min()))) + " $");
-                lotissementsResult.add(sortieJSONArrayBean);
-                System.out.println(sortieJSONArrayBean.toString());
-            }
+        sortieJSONArrayBean sortieJSONArrayBean;;
+        Set<sortieJSONArrayBean> lotissementsResult = new HashSet<sortieJSONArrayBean>();
+
+        for (Lotissement elem : terrainObject.getLotissements()) {
+            sortieJSONArrayBean = new sortieJSONArrayBean();
+            sortieJSONArrayBean.setDescrptions(elem.getDescriptions());
+            sortieJSONArrayBean.setValeur_par_lot(String.valueOf(Agricole.calculerValeurLot(elem.getSuperficie(), Double.valueOf(terrainObject.getPrix_m2_min()))) + " $");
+            lotissementsResult.add(sortieJSONArrayBean);
+            System.out.println(sortieJSONArrayBean.toString());
         }
-        
-//        if (terrainObject.getType_terrain() == 0) {
-//            lotissements.forEach((e) -> {
-//                sortieJSONArrayBean.setDescrptions(e.getDescriptions());
-//                sortieJSONArrayBean.setValeur_par_lot(String.valueOf(Agricole.calculerValeurLot(e.getSuperficie(), Double.valueOf(terrainObject.getPrix_m2_min()))) + " $");
-//                lotissementsResult.add(sortieJSONArrayBean);
-//                System.out.println(sortieJSONArrayBean.toString());
-//
-//            });
-//        }
 
         lotissementsResult.forEach((e) -> {
             System.out.println(e);
         });
 
-//        terrainObject.setLotissements(lotissements);
-//        System.out.println(terrainObject);
+        double valeur_fonciere_total = calculerTotalFonciere(lotissementsResult);
+        System.out.println(valeur_fonciere_total);
+
+        double taux_scolaire = calculerTauxScolaire(valeur_fonciere_total);
+        System.out.println(taux_scolaire);
+
+        double taux_taxe_municipale = calculerTaxeMunicipale(valeur_fonciere_total);
+        System.out.println(taux_taxe_municipale);
+        
+        
+        sortieJSONObjectBean sortieJSONObjectB = new sortieJSONObjectBean(
+                "\""+String.valueOf(valeur_fonciere_total)+" $\"", 
+                String.valueOf(taux_scolaire)+" $", 
+                String.valueOf(taux_taxe_municipale)+" $",
+                lotissementsResult
+        );
+        
+        System.out.println(sortieJSONObjectB.toString());
+        
+        FileWriter.saveStringIntoFile("ressources/terrainRes.json", sortieJSONObjectB.toString());
+    }
+
+    private static double calculerTotalFonciere(Set<sortieJSONArrayBean> lotissementsResult) {
+        final double COUVIRTURE_VALEUR_BASE = 733.77;
+        double resultat = 0;
+        for (sortieJSONArrayBean elem : lotissementsResult) {
+            resultat += Double.parseDouble(elem.getValeur_par_lot().replace(" $", ""));
+        }
+        return resultat + COUVIRTURE_VALEUR_BASE;
+    }
+
+    private static double calculerTauxScolaire(double valeur_fonciere_total) {
+        DecimalFormat df = new DecimalFormat("#.#####");
+        final double TAUX_TAXE_SCOLAIRE = 0.012;
+        return Double.parseDouble(df.format(valeur_fonciere_total * TAUX_TAXE_SCOLAIRE));
+    }
+
+    private static double calculerTaxeMunicipale(double valeur_fonciere_total) {
+        DecimalFormat df = new DecimalFormat("#.#####");
+        final double TAUX_TAXE_MUNICIPALE = 0.0225;
+        return Double.parseDouble(df.format(valeur_fonciere_total * TAUX_TAXE_MUNICIPALE));
     }
 }

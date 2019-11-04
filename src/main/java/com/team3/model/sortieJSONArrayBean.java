@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package com.team3.model;
-
 /**
  *
  * @author radouaneboutiri
@@ -26,7 +25,7 @@ public class sortieJSONArrayBean {
     }
 
     public void setDescrptions(String descrptions) {
-        this.descrptions = descrptions;
+        this.descrptions = "\""+descrptions+"\"";
     }
 
     public String getValeur_par_lot() {
@@ -39,7 +38,9 @@ public class sortieJSONArrayBean {
 
     @Override
     public String toString() {
-        return "sortieJSONArrayBean{" + "descrptions=" + descrptions + ", valeur_par_lot=" + valeur_par_lot + '}';
+//        return org.apache.commons.lang3.builder.ReflectionToStringBuilder.toString(this);
+        return "\"lotissements\" :{" + "\"descrptions\"=" +"\""+ descrptions +"\""+
+                ", \"valeur_par_lot\"=" + valeur_par_lot + '}';
     }
     
 }

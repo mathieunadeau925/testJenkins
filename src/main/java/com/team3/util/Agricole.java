@@ -26,8 +26,8 @@ public class Agricole {
     }
     
     public static double calculerDroitPassage(double nbrDoitPassage, double valeurLot){ 
-        double doitPassage = MTN_DE_BASE - (nbrDoitPassage * (POURCENTAGE_DROIT_PASSAGE * valeurLot));
-        return Double.parseDouble(df.format(doitPassage));
+        double droitPassage = MTN_DE_BASE - (nbrDoitPassage * (POURCENTAGE_DROIT_PASSAGE * valeurLot));
+        return Double.parseDouble(df.format(droitPassage));
     }
     
     public static double calculerMontantService(){ 
