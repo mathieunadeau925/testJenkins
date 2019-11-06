@@ -1,0 +1,9 @@
+Exception in the code. 
+[sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043), sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110), java.lang.Double.parseDouble(Double.java:538), com.team3.util.UtilJson.creerTerrain(UtilJson.java:12), com.team3.main.AppCtr.main(AppCtr.java:26)]
+
+Exception in the code. 
+[net.sf.json.JSONObject.getString(JSONObject.java:2092), com.team3.util.UtilLotissement.creerListeLotissements(UtilLotissement.java:17), com.team3.main.AppCtr.main(AppCtr.java:27)]
+
+Exception in the code. 
+[net.sf.json.JSONObject.getString(JSONObject.java:2092), com.team3.util.UtilLotissement.creerListeLotissements(UtilLotissement.java:17), com.team3.util.UtilJson.creerTerrain(UtilJson.java:18), com.team3.main.AppCtr.main(AppCtr.java:25)]
+

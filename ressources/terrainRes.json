@@ -1,13 +1,13 @@
 {
-    "valeur_fonciere_totale": "17538.72 $",
-    "taxe_Scolaire": "210.46464 $",
-    "taxe_municipale": "394.6212 $",
+    "valeur_fonciere_totale": "17569.77 $",
+    "taxe_Scolaire": "210.83724 $",
+    "taxe_municipale": "395.31982 $",
     "lotissements": [{
-            "descrptions": "lot 1",
-            "valeur_par_lot": "1573.2 $"
-        }, {
             "descrptions": "lot 3",
             "valeur_par_lot": "11498.85 $"
+        }, {
+            "descrptions": "lot 1",
+            "valeur_par_lot": "1604.25 $"
         }, {
             "descrptions": "lot 2",
             "valeur_par_lot": "3732.9 $"

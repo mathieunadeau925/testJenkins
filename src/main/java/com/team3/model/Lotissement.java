@@ -1,65 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.team3.model;
 
+import com.team3.util.CalculAgricole;
 import java.util.Date;
 
-/**
- *
- * @author radouaneboutiri
- */
 public class Lotissement {
-    
-    private String descriptions;
-    private int nombre_droits_passages, nombre_service,superficie;
+
+    private String description;
+    private int nombre_droits_passage, nombre_services, superficie;
     private Date date_mesure;
-    //private Terrain terrain;
+    private double valeur_par_lot;
+    private double montant_droits_passage;
+    private double montant_services;
 
-    public Lotissement() {
-    }
-
-//    public Lotissement(String descriptions, int nombre_droits_passages, int nombre_service, int superficie, Date date_mesure, Terrain terrain) {
-//        this.descriptions = descriptions;
-//        this.nombre_droits_passages = nombre_droits_passages;
-//        this.nombre_service = nombre_service;
-//        this.superficie = superficie;
-//        this.date_mesure = date_mesure;
-//        //this.terrain = terrain;
-//    }
-
-    public Lotissement(String descriptions, int nombre_droits_passages, int nombre_service, int superficie, Date date_mesure) {
-        this.descriptions = descriptions;
-        this.nombre_droits_passages = nombre_droits_passages;
-        this.nombre_service = nombre_service;
+    public Lotissement(String description, int nombre_droits_passage, int nombre_services, int superficie, Date date_mesure) {
+        this.description = description;
+        this.nombre_droits_passage = nombre_droits_passage;
+        this.nombre_services = nombre_services;
         this.superficie = superficie;
         this.date_mesure = date_mesure;
     }
 
-    public String getDescriptions() {
-        return descriptions;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptions(String descriptions) {
-        this.descriptions = descriptions;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public int getNombre_droits_passages() {
-        return nombre_droits_passages;
+    public int getNombre_droits_passage() {
+        return nombre_droits_passage;
     }
 
-    public void setNombre_droits_passages(int nombre_droits_passages) {
-        this.nombre_droits_passages = nombre_droits_passages;
+    public void setNombre_droits_passage(int nombre_droits_passage) {
+        this.nombre_droits_passage = nombre_droits_passage;
     }
 
-    public int getNombre_service() {
-        return nombre_service;
+    public int getNombre_services() {
+        return nombre_services;
     }
 
-    public void setNombre_service(int nombre_service) {
-        this.nombre_service = nombre_service;
+    public void setNombre_services(int nombre_services) {
+        this.nombre_services = nombre_services;
     }
 
     public int getSuperficie() {
@@ -78,20 +60,28 @@ public class Lotissement {
         this.date_mesure = date_mesure;
     }
 
-//    public Terrain getTerrain() {
-//        return terrain;
-//    }
-//
-//    public void setTerrain(Terrain terrain) {
-//        this.terrain = terrain;
-//    }
-
-    @Override
-    public String toString() {
-        return "Lotissement{" + "descriptions=" + descriptions + ", nombre_droits_passages=" + nombre_droits_passages + ", nombre_service=" + nombre_service + ", superficie=" + superficie + ", date_mesure=" + date_mesure + '}';
+    public double getValeur_par_lot() {
+        return valeur_par_lot;
     }
-    
-    
-    
-    
+
+    public void setValeurParLot(Terrain terrain) {
+        valeur_par_lot = CalculAgricole.calculerValeurLot(superficie, terrain.getPrix_m2_min());
+    }
+
+    public double getMontant_droits_passage() {
+        return montant_droits_passage;
+    }
+
+    public double getMontant_services() {
+        return montant_services;
+    }
+
+    public void setMontantDroitsPassage() {
+        montant_droits_passage = CalculAgricole.calculerMontantDroitsPassage(nombre_droits_passage, valeur_par_lot);
+    }
+
+    public void setMontantServices() {
+        montant_services = CalculAgricole.calculerMontantServices();
+    }
+
 }

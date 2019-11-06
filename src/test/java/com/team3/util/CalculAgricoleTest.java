@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.team3.util;
 
 import org.junit.After;
@@ -12,13 +7,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author radouaneboutiri
- */
-public class AgricoleTest {
+public class CalculAgricoleTest {
     
-    public AgricoleTest() {
+    public CalculAgricoleTest() {
     }
 
     @BeforeClass
@@ -38,7 +29,7 @@ public class AgricoleTest {
     }
 
     /**
-     * Test of calculerValeurLot method, of class Agricole.
+     * Test of calculerValeurLot method, of class CalculAgricole.
      */
     @Test
     public void testCalculerValeurLot() {
@@ -46,32 +37,32 @@ public class AgricoleTest {
         double superficier = 456.0;
         double prixMin = 4.32;
         double expResult = 1969.92;
-        double result = Agricole.calculerValeurLot(superficier, prixMin);
+        double result = CalculAgricole.calculerValeurLot(superficier, prixMin);
         assertEquals("Montant pour la Valeur du Lot n'était pas correct.", expResult, result, 0);
     }
 
     /**
-     * Test of calculerDroitPassage method, of class Agricole.
+     * Test of calculerDroitPassage method, of class CalculAgricole.
      */
     @Test
     public void testCalculerDroitPassage() {
         System.out.println("calculerDroitPassage");
-        double nbrDoitPassage = 3;
+        int nbrDoitPassage = 3;
         double valeurLot = 1000;
         double expResult = 350;
-        double result = Agricole.calculerDroitPassage(nbrDoitPassage, valeurLot);
+        double result = CalculAgricole.calculerMontantDroitsPassage(nbrDoitPassage, valeurLot);
         assertEquals("Montant pour las droits du passage n'était pas correct.", expResult, result, 0);
 
     }
 
     /**
-     * Test of calculerMontantService method, of class Agricole.
+     * Test of calculerMontantService method, of class CalculAgricole.
      */
     @Test
     public void testCalculerMontantService() {
         System.out.println("calculerMontantService");
         double expResult = 0.0;
-        double result = Agricole.calculerMontantService();
+        double result = CalculAgricole.calculerMontantServices();
         assertEquals("Montant pour las droits du passage n'était pas correct.", expResult, result, 0);
     }
     
