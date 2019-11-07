@@ -14,6 +14,7 @@ public class UtilCalcul {
      * @return nombre arrondi au 5 sous supérieur.
      */
     public static double arrondisseurMultiple5Superieur(double nombre) {
+        if (nombre < 0) return 0;
         nombre = Math.round(nombre * 100);
         nombre = 5 * (Math.ceil(nombre / 5));
         nombre = nombre / 100;

@@ -33,11 +33,10 @@ public class CalculAgricoleTest {
      */
     @Test
     public void testCalculerValeurLot() {
-        System.out.println("calculerValeurLot");
-        double superficier = 456.0;
+        double superficie = 456.0;
         double prixMin = 4.32;
         double expResult = 1969.92;
-        double result = CalculAgricole.calculerValeurLot(superficier, prixMin);
+        double result = CalculAgricole.calculerValeurLot(superficie, prixMin);
         assertEquals("Montant pour la Valeur du Lot n'était pas correct.", expResult, result, 0);
     }
 
@@ -46,7 +45,6 @@ public class CalculAgricoleTest {
      */
     @Test
     public void testCalculerDroitPassage() {
-        System.out.println("calculerDroitPassage");
         int nbrDoitPassage = 3;
         double valeurLot = 1000;
         double expResult = 350;
@@ -60,7 +58,6 @@ public class CalculAgricoleTest {
      */
     @Test
     public void testCalculerMontantService() {
-        System.out.println("calculerMontantService");
         double expResult = 0.0;
         double result = CalculAgricole.calculerMontantServices();
         assertEquals("Montant pour las droits du passage n'était pas correct.", expResult, result, 0);
