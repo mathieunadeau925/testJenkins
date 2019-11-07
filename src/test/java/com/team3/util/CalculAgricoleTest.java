@@ -35,7 +35,7 @@ public class CalculAgricoleTest {
     public void testCalculerValeurLot() {
         double superficie = 456.0;
         double prixMin = 4.32;
-        double expResult = 1969.92;
+        double expResult = 1969.95;
         double result = CalculAgricole.calculerValeurLot(superficie, prixMin);
         assertEquals("Montant pour la Valeur du Lot n'était pas correct.", expResult, result, 0);
     }
