@@ -8,12 +8,14 @@ public class CalculAgricole {
 
     public static double calculerValeurLot(double superficie, double prixMin) {
         double resultat = superficie * prixMin;
+        resultat = UtilCalcul.arrondisseurMultiple5Superieur(resultat);
         return resultat;
     }
 
     public static double calculerMontantDroitsPassage(int nombre_droits_passage, double valeur_par_lot) {
         double montantDroits = MTN_DE_BASE - (nombre_droits_passage * 
                 (POURCENTAGE_DROIT_PASSAGE * valeur_par_lot));
+        montantDroits = UtilCalcul.arrondisseurMultiple5Superieur(montantDroits);
         return montantDroits;
     }
 

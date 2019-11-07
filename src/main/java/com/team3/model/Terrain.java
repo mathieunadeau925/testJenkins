@@ -1,6 +1,7 @@
 package com.team3.model;
 
 import com.team3.util.LoggerLocal;
+import com.team3.util.UtilCalcul;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
@@ -126,16 +127,19 @@ public class Terrain {
             Lotissement lotissement = iterator.next();
             resultat += lotissement.getValeur_par_lot();
         }
-        valeur_fonciere_totale = resultat + COUVERTURE_VALEUR_BASE;
+        resultat += COUVERTURE_VALEUR_BASE;
+        valeur_fonciere_totale = UtilCalcul.arrondisseurMultiple5Superieur(resultat);
     }
 
     private void calculerTaxesScolaires() {
         final double TAUX_TAXES_SCOLAIRES = 0.012;
-        taxes_scolaires = valeur_fonciere_totale * TAUX_TAXES_SCOLAIRES;
+        double resultat = valeur_fonciere_totale * TAUX_TAXES_SCOLAIRES;
+        taxes_scolaires = UtilCalcul.arrondisseurMultiple5Superieur(resultat);
     }
 
     private void calculerTaxesMunicipales() {
         final double TAUX_TAXES_MUNICIPALES = 0.0225;
-        taxes_municipales = valeur_fonciere_totale * TAUX_TAXES_MUNICIPALES;
+        double resultat = valeur_fonciere_totale * TAUX_TAXES_MUNICIPALES;
+        taxes_municipales = UtilCalcul.arrondisseurMultiple5Superieur(resultat);
     }
 }
