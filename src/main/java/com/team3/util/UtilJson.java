@@ -11,11 +11,11 @@ import net.sf.json.JSONObject;
 public class UtilJson {
 
     public static JSONObject creerJsonSortie(Terrain terrain) {
-        NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.CANADA_FRENCH);
+        
         JSONObject jsonSortie = new JSONObject();
-        jsonSortie.accumulate("valeur_fonciere_totale", nf.format(terrain.getValeur_fonciere_totale()));
-        jsonSortie.accumulate("taxe_scolaire", nf.format(terrain.getTaxes_scolaires()));
-        jsonSortie.accumulate("taxe_municipale", nf.format(terrain.getTaxes_municipales()));
+        jsonSortie.accumulate("valeur_fonciere_totale", formatteurDouble(terrain.getValeur_fonciere_totale()));
+        jsonSortie.accumulate("taxe_scolaire", formatteurDouble(terrain.getTaxes_scolaires()));
+        jsonSortie.accumulate("taxe_municipale", formatteurDouble(terrain.getTaxes_municipales()));
 
         JSONArray arraySortie = new JSONArray();
         JSONObject arraySortieObject = new JSONObject();
@@ -24,7 +24,7 @@ public class UtilJson {
         while (iterator.hasNext()) {
             Lotissement lotissement = iterator.next();
             arraySortieObject.accumulate("description", lotissement.getDescription());
-            arraySortieObject.accumulate("valeur_par_lot", nf.format(lotissement.getValeur_par_lot()));
+            arraySortieObject.accumulate("valeur_par_lot", formatteurDouble(lotissement.getValeur_par_lot()));
             arraySortie.add(arraySortieObject);
             arraySortieObject.clear();
         }
@@ -54,5 +54,12 @@ public class UtilJson {
         } catch (Exception e) {
             LoggerLocal.logErreur(e);
         }
+    }
+    
+    private static String formatteurDouble(double number) {
+        NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.CANADA_FRENCH);
+        String res = nf.format(number);
+        res = res.replaceAll(",", ".");
+        return res;     
     }
 }
