@@ -56,7 +56,7 @@ public class UtilJson {
         }
     }
     
-    private static String formatteurDouble(double number) {
+    public static String formatteurDouble(double number) {
         NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.CANADA_FRENCH);
         String res = nf.format(number);
         res = res.replaceAll(",", ".");
