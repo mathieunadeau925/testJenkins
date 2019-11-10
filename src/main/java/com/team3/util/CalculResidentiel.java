@@ -12,8 +12,8 @@ public class CalculResidentiel {
     private static double MONTANT_SERVICES = 0 ;
     private static final double MTN_SER_5 =500, MTN_SER_1 =1000;
 
-    public static double calculerValeurLot(double superficie, double prixMin) {
-        double resultat = superficie * prixMin;
+    public static double calculerValeurLot(double superficie, double prixMin , double prixMax) {
+        double resultat = superficie * calculerPrixMoyenne(prixMin, prixMax);
         resultat = UtilCalcul.arrondisseurMultiple5Superieur(resultat);
         return resultat;
     }
@@ -34,6 +34,9 @@ public class CalculResidentiel {
         }else{ 
             return MONTANT_SERVICES= MTN_SER_1 * nombre_services;
         }
-        
     }
+    public static double calculerPrixMoyenne (double prixMin ,double prixMax){
+        return (prixMax+prixMin)/2 ;
+           
+        }
 }
