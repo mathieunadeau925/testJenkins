@@ -9,8 +9,8 @@ public class CalculResidentiel {
 
     private static final double MTN_DE_BASE = 500;
     private static final double POURCENTAGE_DROIT_PASSAGE = 0.10;
-    private static final double MONTANT_SERVICES = 0 ,mtn_ser_500 =500,
-                                mtn_ser_1000 =1000;
+    private static final double MONTANT_SERVICES = 0 ,mtn_ser_5 =500,
+                                mtn_ser_1 =1000;
 
     public static double calculerValeurLot(double superficie, double prixMin) {
         double resultat = superficie * prixMin;
@@ -30,9 +30,9 @@ public class CalculResidentiel {
             return MONTANT_SERVICES ;
         }else if (MONTANT_SERVICES <= 1000){
             
-            return MONTANT_SERVICES = mtn_ser_500 * nombre_services;
+            return MONTANT_SERVICES = mtn_ser_5 * nombre_services;
         }else{ 
-            return MONTANT_SERVICES= mtn_ser_1000 * nombre_services;
+            return MONTANT_SERVICES= mtn_ser_1 * nombre_services;
         }
         
     }
