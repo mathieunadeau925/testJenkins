@@ -43,9 +43,6 @@ public class UtilJson {
             //creation terrain
             Terrain terrain = Terrain.creerTerrain(terrainJson);
 
-            //test d'affichage
-            terrain.afficherTerrain();
-
             //création json de sortie
             JSONObject jsonSortie = UtilJson.creerJsonSortie(terrain);
 

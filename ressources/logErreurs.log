@@ -19,3 +19,6 @@ Exception in the code.
 Exception in the code. 
 [com.team3.util.UtilJson.traiterFichierJson(UtilJson.java:47), com.team3.main.AppCtr.main(AppCtr.java:12)]
 
+Exception in the code. 
+[com.team3.main.AppCtr.main(AppCtr.java:10)]
+
