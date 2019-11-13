@@ -9,7 +9,7 @@ public class CalculResidentiel {
 
     private static final double MTN_DE_BASE = 500;
     private static final double POURCENTAGE_DROIT_PASSAGE = 0.10;
-    private static double MONTANT_SERVICES = 0 ;
+    private static double montantServices = 0 ;
     private static final double MTN_SER_5 =500, MTN_SER_1 =1000,
             SUPERFICIE_MAX=100000,SUPERFICIE_MIN=500;
 
@@ -28,13 +28,16 @@ public class CalculResidentiel {
 
     public static double calculerMontantService(double superficie ,int nombre_services) {
         if (superficie <= SUPERFICIE_MIN) {
-            return MONTANT_SERVICES ;
+             montantServices = montantServices ;
         }else if (superficie <= SUPERFICIE_MAX){
             
-            return MONTANT_SERVICES = MTN_SER_5 * nombre_services;
+             montantServices = MTN_SER_5 * nombre_services;
         }else{ 
-            return MONTANT_SERVICES= MTN_SER_1 * nombre_services;
+             montantServices= MTN_SER_1 * nombre_services;
         }
+          montantServices = UtilCalcul.arrondisseurMultiple5Superieur(montantServices);
+          
+          return montantServices ;
     }
     public static double calculerPrixMoyenne (double prixMin ,double prixMax){
         return (prixMax+prixMin)/2 ;
