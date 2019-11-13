@@ -1,14 +1,9 @@
 package com.team3.util;
 
-/**
- * LES VALEURS NE SONT PAS VALIDES. SEULEMENT POUR DES TESTS!!
- *
- * @author mathi
- */
 public class CalculCommercial {
 
-    private static double MONTANT_SERVICES = 0;
-    private static final double MTN_DE_BASE = 500,
+    private static double montantServices = 0;
+    private static final double MNT_DE_BASE = 500,
             POURCENTAGE_DROIT_PASSAGE = 0.15,
             SUPERFICIE_MIN = 500,
             MONTANT_SERVICE_COM1 = 500,
@@ -22,20 +17,21 @@ public class CalculCommercial {
     }
 
     public static double calculerDroitPassage(double nbrDoitPassage, double valeurLot) {
-        double droitPassage = MTN_DE_BASE - (nbrDoitPassage * (POURCENTAGE_DROIT_PASSAGE * valeurLot));
+        double droitPassage = MNT_DE_BASE - (nbrDoitPassage * (POURCENTAGE_DROIT_PASSAGE * valeurLot));
         droitPassage = UtilCalcul.arrondisseurMultiple5Superieur(droitPassage);
         return droitPassage;
     }
 
     public static double calculerMontantService(double superficie, int nombre_services) {
         if (superficie <= SUPERFICIE_MIN) {
-            MONTANT_SERVICES = MONTANT_SERVICE_COM1 * nombre_services;
+            montantServices = MONTANT_SERVICE_COM1 * nombre_services;
         } else {
-            MONTANT_SERVICES = MONTANT_SERVICE_COM2 * nombre_services;
+            montantServices = MONTANT_SERVICE_COM2 * nombre_services;
         }
-        if (MONTANT_SERVICES >= MONTANT_SERVICES_COM3) {
-            MONTANT_SERVICES = MONTANT_SERVICES_COM3;
+        if (montantServices >= MONTANT_SERVICES_COM3) {
+            montantServices = MONTANT_SERVICES_COM3;
         }
-        return MONTANT_SERVICES;
+        montantServices = UtilCalcul.arrondisseurMultiple5Superieur(montantServices);
+        return montantServices;
     }
 }
