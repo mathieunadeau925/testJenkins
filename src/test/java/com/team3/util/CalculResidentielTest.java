@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author aziz
+ * @author 1995101
  */
 public class CalculResidentielTest {
     
@@ -48,7 +48,7 @@ public class CalculResidentielTest {
         double prixMax = 3.42;
         double expResult = 933.0;
         double result = CalculResidentiel.calculerValeurLot(superficie, prixMin, prixMax);
-        assertEquals("montant error",expResult, result, 0.0);
+        assertEquals(expResult, result, 0.0);
     }
 
     /**
@@ -70,7 +70,7 @@ public class CalculResidentielTest {
     @Test
     public void testCalculerMontantService() {
         System.out.println("calculerMontantService");
-        double superficie = 11000.0;
+        double superficie =11000.0;
         int nombre_services = 2;
         double expResult = 2000.0;
         double result = CalculResidentiel.calculerMontantService(superficie, nombre_services);
