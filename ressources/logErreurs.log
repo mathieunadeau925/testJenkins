@@ -22,3 +22,15 @@ Exception in the code.
 Exception in the code. 
 [com.team3.main.AppCtr.main(AppCtr.java:10)]
 
+Exception in the code. 
+[java.io.FileInputStream.open0(Native Method), java.io.FileInputStream.open(Unknown Source), java.io.FileInputStream.<init>(Unknown Source), java.io.FileInputStream.<init>(Unknown Source), com.team3.util.FileReader.loadFileIntoString(FileReader.java:12), com.team3.util.UtilJson.traiterFichierJson(UtilJson.java:38), com.team3.main.AppCtr.main(AppCtr.java:11), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source), sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source), java.lang.reflect.Method.invoke(Unknown Source), com.simontuffs.onejar.Boot.run(Boot.java:340), com.simontuffs.onejar.Boot.main(Boot.java:166)]
+
+Exception in the code. 
+[java.io.FileInputStream.open0(Native Method), java.io.FileInputStream.open(Unknown Source), java.io.FileInputStream.<init>(Unknown Source), java.io.FileInputStream.<init>(Unknown Source), com.team3.util.FileReader.loadFileIntoString(FileReader.java:12), com.team3.util.UtilJson.traiterFichierJson(UtilJson.java:38), com.team3.main.AppCtr.main(AppCtr.java:11), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source), sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source), java.lang.reflect.Method.invoke(Unknown Source), com.simontuffs.onejar.Boot.run(Boot.java:340), com.simontuffs.onejar.Boot.main(Boot.java:166)]
+
+Exception in the code. 
+[java.io.FileInputStream.open0(Native Method), java.io.FileInputStream.open(Unknown Source), java.io.FileInputStream.<init>(Unknown Source), java.io.FileInputStream.<init>(Unknown Source), com.team3.util.FileReader.loadFileIntoString(FileReader.java:12), com.team3.util.UtilJson.traiterFichierJson(UtilJson.java:38), com.team3.main.AppCtr.main(AppCtr.java:11), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source), sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source), java.lang.reflect.Method.invoke(Unknown Source), com.simontuffs.onejar.Boot.run(Boot.java:340), com.simontuffs.onejar.Boot.main(Boot.java:166)]
+
+Exception in the code. 
+[java.io.FileInputStream.open0(Native Method), java.io.FileInputStream.open(Unknown Source), java.io.FileInputStream.<init>(Unknown Source), java.io.FileInputStream.<init>(Unknown Source), com.team3.util.FileReader.loadFileIntoString(FileReader.java:12), com.team3.util.UtilJson.traiterFichierJson(UtilJson.java:38), com.team3.main.AppCtr.main(AppCtr.java:11), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source), sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source), java.lang.reflect.Method.invoke(Unknown Source), com.simontuffs.onejar.Boot.run(Boot.java:340), com.simontuffs.onejar.Boot.main(Boot.java:166)]
+

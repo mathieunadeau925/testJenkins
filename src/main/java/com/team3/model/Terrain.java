@@ -89,24 +89,17 @@ public class Terrain {
         this.taxes_municipales = taxes_municipales;
     }
 
-    public static Terrain creerTerrain(JSONObject terrainJson) {
-        Terrain terrain = null;
-        try {
-            JSONArray listeJsonLotissements = terrainJson.getJSONArray("lotissements");
-            int type_terrain = terrainJson.getInt("type_terrain");
-            double prix_m2_min = Double.parseDouble(terrainJson.getString("prix_m2_min").replace(" $", ""));
-            double prix_m2_max = Double.parseDouble(terrainJson.getString("prix_m2_max").replace(" $", ""));
-            terrain = new Terrain(type_terrain, prix_m2_min, prix_m2_max);
-            terrain.setLotissements(ListeLotissements.creerListeLotissements(listeJsonLotissements, terrain));
-            terrain.calculerTotalFonciere();
-            terrain.calculerTaxesScolaires();
-            terrain.calculerTaxesMunicipales();
-
-        } catch (Exception e) {
-            LoggerLocal.logErreur(e);
-        } finally {
-            return terrain;
-        }
+    public static Terrain creerTerrain(JSONObject terrainJson) throws Exception {
+        JSONArray listeJsonLotissements = terrainJson.getJSONArray("lotissements");
+        int type_terrain = terrainJson.getInt("type_terrain");
+        double prix_m2_min = Double.parseDouble(terrainJson.getString("prix_m2_min").replace(" $", ""));
+        double prix_m2_max = Double.parseDouble(terrainJson.getString("prix_m2_max").replace(" $", ""));
+        Terrain terrain = new Terrain(type_terrain, prix_m2_min, prix_m2_max);
+        terrain.setLotissements(ListeLotissements.creerListeLotissements(listeJsonLotissements, terrain));
+        terrain.calculerTotalFonciere();
+        terrain.calculerTaxesScolaires();
+        terrain.calculerTaxesMunicipales();
+        return terrain;
     }
 
     public void afficherTerrain() {
