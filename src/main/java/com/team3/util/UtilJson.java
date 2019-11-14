@@ -10,7 +10,7 @@ import net.sf.json.JSONObject;
 
 public class UtilJson {
 
-    public static JSONObject creerJsonSortie(Terrain terrain) {
+    public static JSONObject creerJsonSortie(Terrain terrain) throws Exception {
         
         JSONObject jsonSortie = new JSONObject();
         jsonSortie.accumulate("valeur_fonciere_totale", formatteurDouble(terrain.getValeur_fonciere_totale()));
@@ -33,9 +33,7 @@ public class UtilJson {
         return jsonSortie;
     }
 
-    public static void traiterFichierJson(String fichierEntree, String fichierSortie) {
-
-        try {
+    public static void traiterFichierJson(String fichierEntree, String fichierSortie) throws Exception {
             //chargement
             String objetJson = FileReader.loadFileIntoString(fichierEntree, "UTF-8");
             JSONObject terrainJson = JSONObject.fromObject(objetJson);
@@ -48,9 +46,6 @@ public class UtilJson {
 
             //sauvegarde json de sortie
             FileWriter.saveStringIntoFile(fichierSortie, jsonSortie.toString());
-        } catch (Exception e) {
-            LoggerLocal.logErreur(e);
-        }
     }
     
     public static String formatteurDouble(double number) {
