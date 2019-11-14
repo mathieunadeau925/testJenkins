@@ -36,7 +36,7 @@ public class UtilCalculTest {
         double nombre = -5;
         double resultat = UtilCalcul.arrondisseurMultiple5Superieur(nombre);
 
-        assertTrue("Résultat attendu :" + 0 + "\nRésultat obtenu: " + resultat, (resultat == 0));
+        assertTrue("Résultat attendu :" + -5 + "\nRésultat obtenu: " + resultat, (resultat == -5));
     }
     
         @Test
