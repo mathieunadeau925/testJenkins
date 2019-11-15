@@ -60,7 +60,7 @@ public class UtilCalculTest {
         double nombre = 45.54678756;
         double resultat = UtilCalcul.arrondisseurMultiple5Superieur(nombre);
 
-        assertTrue("Résultat attendu :" + 45.55 + "\nRésultat obtenu: " + resultat, (resultat == 45.55));
+        assertTrue("Résultat attendu :" + 45.55 + "\nRésultat obtenu: " + resultat, (resultat == 45.57));
     }
     
         @Test
