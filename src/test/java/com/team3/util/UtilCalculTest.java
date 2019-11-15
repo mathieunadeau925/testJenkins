@@ -68,6 +68,6 @@ public class UtilCalculTest {
         double nombre = 36.413;
         double resultat = UtilCalcul.arrondisseurMultiple5Superieur(nombre);
 
-        assertTrue("Résultat attendu :" +36.45 + "\nRésultat obtenu: " + resultat, (resultat == 36.49));
+        assertTrue("Résultat attendu :" +36.45 + "\nRésultat obtenu: " + resultat, (resultat == 36.45));
     }
 }
